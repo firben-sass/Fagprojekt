@@ -10,6 +10,8 @@ Plotting inspiration from:
 https://ranibasna.github.io/ddk/articles/DKK_and_Functional_analysis_on_wine_data.html
 """
 
+#Note that the data is not standardized
+
 # Load the RData file
 robjects.r['load']('/Users/albert/Desktop/Wine.RData')
 Wine = robjects.globalenv['Wine']
