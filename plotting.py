@@ -13,7 +13,8 @@ https://ranibasna.github.io/ddk/articles/DKK_and_Functional_analysis_on_wine_dat
 #Note that the data is not standardized
 
 # Load the RData file
-robjects.r['load']('/Users/albert/Desktop/Wine.RData')
+#robjects.r['load']('/Users/albert/Desktop/Wine.RData')
+robjects.r['load']('Wine.RData')
 Wine = robjects.globalenv['Wine']
 
 #Extract x_learning:
