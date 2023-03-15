@@ -1,4 +1,3 @@
-# %%
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -13,7 +12,6 @@ https://ranibasna.github.io/ddk/articles/DKK_and_Functional_analysis_on_wine_dat
 #Note that the data is not standardized
 
 # Load the RData file
-#robjects.r['load']('/Users/albert/Desktop/Wine.RData')
 robjects.r['load']('Wine.RData')
 Wine = robjects.globalenv['Wine']
 
@@ -41,13 +39,10 @@ def df_plot_fda(S_data, time_df, s=1, a=0.8, n_sample=10) -> None:
     df_plot_melt_n = pd.melt(df_plot_n, id_vars='time')
     plt.figure()
     plot_n = sns.lineplot(data=df_plot_melt_n, x='time', y='value', hue='variable', 
-                          linewidth=s, alpha=a, palette='magma', legend=True)
-    plot_n.set(xlabel='Samples', ylabel='', title='')
-    plt.savefig("Wine_data_df_plot.png", dpi=300)
+                          linewidth=s, alpha=a, palette='Set1', legend=False)
+    plot_n.set(xlabel='Integers relating to different wave numbers', ylabel='Absorbance of wine samples', title='')
+    plt.savefig("Wine_data_df_plot.png", dpi=800)
+    return plot_n
+
 t_df_wine = np.arange(1, x_learning.shape[1]+1)
-df_plot_fda(S_data=x_learning, time_df=t_df_wine, a=1, s=0.5, n_sample=10)
-
-
-
-
-# %%
+plot_n = df_plot_fda(S_data=x_learning, time_df=t_df_wine, a=1, s=0.5, n_sample=10)
