@@ -46,3 +46,8 @@ def df_plot_fda(S_data, time_df, s=1, a=0.8, n_sample=10) -> None:
 
 t_df_wine = np.arange(1, x_learning.shape[1]+1)
 plot_n = df_plot_fda(S_data=x_learning, time_df=t_df_wine, a=1, s=0.5, n_sample=10)
+
+
+print("There are a total of", len(x_learning)+len(x_test), "samples in the entire dataset.")
+print("There are a total of", len(x_learning), "samples in the training set.")
+print("There are a total of", len(x_test), "samples in the test set.")
