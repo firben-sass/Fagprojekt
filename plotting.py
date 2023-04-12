@@ -3,6 +3,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import rpy2.robjects as robjects
+from load_data import load_data
+
 
 """
 Plotting inspiration from: 
@@ -11,25 +13,7 @@ https://ranibasna.github.io/ddk/articles/DKK_and_Functional_analysis_on_wine_dat
 
 #Note that the data is not standardized
 
-# Load the RData file
-robjects.r['load']('Wine.RData')
-Wine = robjects.globalenv['Wine']
-
-#Extract x_learning:
-x_learning = Wine.rx2('x.learning')
-x_learning = pd.DataFrame(np.array(x_learning).reshape((-1, 256)))
-
-#Extract x_test:
-x_test = Wine.rx2('x.test')
-x_test = pd.DataFrame(np.array(x_test).reshape((-1,256)))
-
-#Extract y_learning:
-y_learning = Wine.rx2('y.learning')
-y_learning = pd.DataFrame(np.array(y_learning).reshape((-1,94))).T
-
-#Extract y_test:
-y_test = Wine.rx2('y.test')
-y_test = pd.DataFrame(np.array(x_test).reshape((-1,30))).T
+x_learning, x_test = load_data()
 
 def df_plot_fda(S_data, time_df, s=1, a=0.8, n_sample=10) -> None:
     
