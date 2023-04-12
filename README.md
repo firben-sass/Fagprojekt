@@ -1,2 +1,2 @@
 # Fagprojekt
-Normalizing flow: MAF &amp; coupling
+Normalizing flow: MAF &amp; NICE
