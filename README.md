@@ -1,2 +1,2 @@
-# Fagprojekt
-Normalizing flow: MAF &amp; NICE
+# Data driven knots selection for functional data using Normalizing Flows
+
