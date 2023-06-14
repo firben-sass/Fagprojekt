@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
 from torch.distributions.normal import Normal
-from scipy.optimize import bisect, newton
+from scipy.optimize import bisect
+from scipy.optimize import newton
 
 class Flow1d(nn.Module):
     def __init__(self, n_components):
@@ -21,12 +22,7 @@ class Flow1d(nn.Module):
     def inverse(self, z):
         if isinstance(z, tuple):
             z, _ = z
-        results = []
-        for z_elem in z:
-            def f(x):
-                return self.forward(torch.tensor(x).unsqueeze(0))[0] - z_elem
-            #x = newton(f, 0.02238, tol=0.2)
-            #print(z_elem)
-            x = bisect(f, -5, 5)
-            results.append(x)
-        return torch.tensor(results).reshape(z.shape), None
+        def f(x):
+            return self.forward(torch.tensor(x).unsqueeze(0))[0] - z
+        x = bisect(f,-20,20)
+        return torch.tensor(x).reshape(z.shape), None
