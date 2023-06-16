@@ -4,3 +4,7 @@ In order to be able to reproduce the results of the investigation, one must inst
 ```
 pip install -r requirements.txt
 ```
+One can thereafter run the jupyter notebook, in order to firstly train the NF model and thereafter perform data driven knot selection:
+```
+main.ipynb
+```
